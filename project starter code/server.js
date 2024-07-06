@@ -40,7 +40,7 @@ app.get("/getFilteredImage", async (request, response) => {
       if (filteredimage) {
         response.statusCode = 200;
         response.sendFile(filteredimage);
-        response.on(`end`, async () => await deleteLocalFiles([filteredimage]));
+        response.on(`end`, async () => await deleteLocalFiles(new Array().push(filteredimage)));
       }
     } else {
       response.statusCode = 400;
